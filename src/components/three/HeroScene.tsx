@@ -81,6 +81,11 @@ function PolishBottle({ mobile }: { mobile: boolean }) {
 }
 
 /* ───────────── Cinta de seda (obi) que ondula ───────────── */
+const sm = (e0: number, e1: number, x: number) => {
+  const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0)))
+  return t * t * (3 - 2 * t)
+}
+
 function SilkRibbon({
   width = 11,
   height = 0.95,
@@ -109,7 +114,9 @@ function SilkRibbon({
     const arr = pos.array as Float32Array
     for (let i = 0; i < arr.length; i += 3) {
       const x = base[i]
-      const y = base[i + 1]
+      const u = x / width + 0.5
+      const prof = Math.max(0.015, sm(0, 0.28, u) * sm(1, 0.72, u))
+      const y = base[i + 1] * prof
       const a = Math.sin(x * 0.33 + t * 0.35 + phase) * 1.15
       const yy = y * Math.cos(a)
       const zt = y * Math.sin(a)
@@ -121,7 +128,8 @@ function SilkRibbon({
     geo.computeVertexNormals()
   }
 
-  useMemo(() => deform(t0.current), []) // forma inicial (también para reduced-motion)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useMemo(() => deform(t0.current), [geo]) // forma inicial (también para reduced-motion)
 
   useFrame((_, dt) => {
     if (reduced) return
@@ -253,8 +261,8 @@ function Rig({ reduced, mobile }: SceneProps) {
   })
 
   const bx = narrow ? 0 : Math.min(viewport.width * 0.22, 2.4)
-  const by = narrow ? 0.55 : -0.25
-  const bs = narrow ? 0.72 : 1
+  const by = narrow ? 0.96 : -0.25
+  const bs = narrow ? 0.5 : 1
 
   return (
     <group ref={group}>
@@ -266,11 +274,11 @@ function Rig({ reduced, mobile }: SceneProps) {
         </Float>
       </group>
       {/* Cintas de seda en diagonal, como los trazos de la K */}
-      <group position={[bx * 0.6, by - 0.2, -1.1]} rotation={[0.1, 0, -0.42]}>
-        <SilkRibbon reduced={reduced} />
+      <group position={narrow ? [0, by + 0.1, -1.1] : [bx + 1.7, by - 0.1, -1.1]} rotation={[0.1, 0, -0.42]}>
+        <SilkRibbon reduced={reduced} width={narrow ? 5.5 : 7.5} height={narrow ? 0.6 : 0.95} />
       </group>
-      <group position={[bx * 0.5, by - 0.9, -1.8]} rotation={[0.2, 0.1, -0.42]}>
-        <SilkRibbon reduced={reduced} width={12} height={0.22} color={COPPER} phase={1.7} speed={0.8} amp={0.4} metal={0.55} />
+      <group position={narrow ? [0, by - 0.5, -1.8] : [bx + 1.5, by - 0.8, -1.8]} rotation={[0.2, 0.1, -0.42]}>
+        <SilkRibbon reduced={reduced} width={narrow ? 6 : 9} height={narrow ? 0.14 : 0.22} color={COPPER} phase={1.7} speed={0.8} amp={0.4} metal={0.55} />
       </group>
       <Petals count={mobile ? 18 : 46} reduced={reduced} />
       {!reduced && <Sparkles count={mobile ? 18 : 40} scale={[10, 6, 3]} size={mobile ? 2.5 : 3.5} speed={0.25} opacity={0.7} color={SAND} />}

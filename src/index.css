@@ -60,6 +60,7 @@ html.lenis body {
   overflow: hidden;
 }
 
+@layer components {
 /* Patrón seigaiha (olas japonesas) en trazo fino */
 .seigaiha {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40' viewBox='0 0 80 40'%3E%3Cg fill='none' stroke='%23E3D4BF' stroke-width='0.8'%3E%3Cpath d='M0 40a40 40 0 0 1 80 0M10 40a30 30 0 0 1 60 0M20 40a20 20 0 0 1 40 0M30 40a10 10 0 0 1 20 0'/%3E%3Cpath d='M-40 20a40 40 0 0 1 80 0M-30 20a30 30 0 0 1 60 0M-20 20a20 20 0 0 1 40 0M-10 20a10 10 0 0 1 20 0M40 20a40 40 0 0 1 80 0M50 20a30 30 0 0 1 60 0M60 20a20 20 0 0 1 40 0M70 20a10 10 0 0 1 20 0'/%3E%3C/g%3E%3C/svg%3E");
@@ -137,6 +138,8 @@ html.lenis body {
   transform: translateX(60%);
 }
 
+}
+
 /* Cursor personalizado: oculta el nativo solo si está activo */
 html.has-custom-cursor,
 html.has-custom-cursor a,
@@ -144,6 +147,7 @@ html.has-custom-cursor button {
   cursor: none;
 }
 
+@layer components {
 .skip-link {
   position: absolute;
   left: 1rem;
@@ -157,6 +161,8 @@ html.has-custom-cursor button {
 }
 .skip-link:focus {
   top: 1rem;
+}
+
 }
 
 @media (prefers-reduced-motion: reduce) {

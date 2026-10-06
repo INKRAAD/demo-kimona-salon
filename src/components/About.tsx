@@ -9,10 +9,10 @@ export function About() {
         <div className="relative md:col-span-5">
           <FadeIn className="relative aspect-[4/5] overflow-hidden rounded-t-full">
             <img
-              src={img('nails-minimal', 800)}
-              srcSet={srcSet('nails-minimal')}
+              src={img('flowers-hold', 800)}
+              srcSet={srcSet('flowers-hold')}
               sizes="(min-width: 768px) 40vw, 100vw"
-              alt="Mano con manicure oscura y anillos sobre una pared clara (imagen referencial)"
+              alt="Mujer sosteniendo un ramo de flores pequeñas sobre fondo crema (imagen referencial)"
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -40,7 +40,7 @@ export function About() {
             {TEAM.map((m, i) => (
               <FadeIn as="li" key={m.name} delay={i * 0.08} className="sheen group rounded-[24px] border border-teal/15 bg-washi/60 p-6 transition-colors duration-500 hover:bg-washi">
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-teal font-display text-2xl text-sand transition-transform duration-700 group-hover:rotate-[360deg]" aria-hidden>
-                  {m.name === 'La fundadora' ? 'K' : m.name[0]}
+                  {m.name === 'La fundadora' ? <Sparkle className="h-5 w-5 text-copper-light" /> : m.name[0]}
                 </span>
                 <p className="display mt-5 text-2xl">{m.name}</p>
                 <p className="mt-1 text-sm text-teal">{m.role}</p>

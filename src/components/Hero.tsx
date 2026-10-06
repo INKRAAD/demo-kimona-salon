@@ -112,7 +112,7 @@ export function Hero({ ready, reduced, mobile }: { ready: boolean; reduced: bool
       {/* Velo para legibilidad del texto */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-[5] bg-gradient-to-t from-ink/90 via-ink/30 to-transparent md:bg-gradient-to-r md:from-ink/70 md:via-ink/10 md:to-transparent" />
 
-      <div className="hero-copy relative mx-auto w-full max-w-7xl px-6 pb-16 pt-32 md:px-10 md:pb-0 md:pt-24">
+      <div className="hero-copy relative mx-auto w-full max-w-7xl px-6 pb-10 pt-32 md:px-10 md:pb-0 md:pt-24">
         <p className="hero-fade eyebrow mb-6 flex items-center gap-3 text-copper-light">
           <Sparkle className="h-3 w-3 text-copper-light" />
           Miraflores · Lima
@@ -123,26 +123,30 @@ export function Hero({ ready, reduced, mobile }: { ready: boolean; reduced: bool
           play={ready}
           delay={0.25}
           text={'Belleza en\ncada *detalle.*'}
-          className="display max-w-[11ch] text-[clamp(3.2rem,9vw,8.4rem)] text-sand"
+          className="display max-w-[11ch] text-[clamp(2.9rem,9vw,8.4rem)] text-sand"
           emClass="italic text-copper-light"
         />
-        <p className="hero-fade mt-7 max-w-md text-lg leading-relaxed font-light text-sand/85 md:text-xl">
+        <p className="hero-fade mt-5 max-w-md text-base leading-relaxed font-light text-sand/85 md:mt-7 md:text-xl">
           Uñas, pestañas, cejas y maquillaje en un espacio pensado para que vivas el <em className="font-normal not-italic text-sand">lujo accesible</em>, con comodidad y confianza.
         </p>
-        <div className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="hero-fade mt-7 flex flex-wrap gap-3 md:mt-9">
           <MagneticButton href={FRESHA_URL} external variant="sand" ariaLabel="Reservar cita en Fresha (se abre en una pestaña nueva)">
-            Reservar en Fresha
+            <span>
+              Reservar<span className="hidden sm:inline"> en Fresha</span>
+            </span>
             <span aria-hidden className="transition-transform duration-500 group-hover:translate-x-1">→</span>
           </MagneticButton>
           <MagneticButton href={WHATSAPP_URL} external variant="ghost-light" ariaLabel="Escribir por WhatsApp (se abre en una pestaña nueva)">
-            Escríbenos por WhatsApp
+            <span>
+              <span className="hidden sm:inline">Escríbenos por </span>WhatsApp
+            </span>
           </MagneticButton>
         </div>
         <a
           href={SITE.mapsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="hero-fade mt-10 inline-flex items-center gap-3 rounded-full border border-sand/15 bg-ink/30 py-2 pr-5 pl-3 text-sm text-sand/90 backdrop-blur-md transition-colors hover:border-sand/40"
+          className="hero-fade mt-7 inline-flex items-center gap-3 md:mt-10 rounded-full border border-sand/15 bg-ink/30 py-2 pr-5 pl-3 text-sm text-sand/90 backdrop-blur-md transition-colors hover:border-sand/40"
           aria-label={`Calificación ${SITE.rating.toFixed(1)} de 5 con ${SITE.reviewsCount} reseñas en Google`}
         >
           <span className="flex text-copper-light" aria-hidden>

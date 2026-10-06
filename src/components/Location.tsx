@@ -75,14 +75,14 @@ export function Location() {
               <button
                 type="button"
                 onClick={() => setMapOn(true)}
-                className="group absolute inset-0 flex h-full w-full flex-col items-center justify-center text-center"
+                className="group absolute inset-0 flex h-full w-full flex-col items-center justify-end pb-10 text-center"
                 aria-label="Cargar mapa interactivo de Google Maps"
               >
                 <MapArt />
                 <span className="relative z-10 mt-6 rounded-full bg-sand px-6 py-3 text-sm font-medium text-teal transition-transform duration-500 group-hover:scale-105">
                   Ver mapa interactivo
                 </span>
-                <span className="relative z-10 mt-3 text-xs text-sand/60">Se carga Google Maps al pulsar</span>
+                <span className="relative z-10 mt-3 text-xs text-sand/60">Mapa ilustrativo · Google Maps se carga al pulsar</span>
               </button>
             )}
           </div>
@@ -119,6 +119,8 @@ function MapArt() {
         <animate attributeName="r" values="30;60;30" dur="3s" repeatCount="indefinite" />
         <animate attributeName="fill-opacity" values="0.16;0;0.16" dur="3s" repeatCount="indefinite" />
       </circle>
+      <rect x="330" y="282" width="128" height="36" rx="18" fill="#E3D4BF" />
+      <text x="394" y="306" textAnchor="middle" fill="#18434A" fontSize="15" fontFamily="Playfair Display Variable, serif" letterSpacing="3">KIMONA</text>
       <path transform="translate(300 300) scale(1.1)" fill="#9F7D69" d="M25.3 0C8.4 4.1 4.1 8.4 0 25.3-4.1 8.4-8.4 4.1-25.3 0-8.4-4.1-4.1-8.4 0-25.3 4.1-8.4 8.4-4.1 25.3 0Z" />
     </svg>
   )

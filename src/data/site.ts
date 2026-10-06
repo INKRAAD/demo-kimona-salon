@@ -160,6 +160,7 @@ export const CREDITS: Record<string, { author: string; source: 'Pexels' | 'Unspl
   'nails-french': { author: 'Salim Da', source: 'Pexels', url: 'https://www.pexels.com/photo/delicate-hand-with-stylish-french-manicure-35031987/' },
   'lashes-macro': { author: 'Milky Way Lashes', source: 'Unsplash', url: 'https://unsplash.com/photos/a-close-up-of-a-persons-eye-with-long-lashes-GEct9d7zgos' },
   'nails-nude': { author: 'Mailén Aguirre', source: 'Unsplash', url: 'https://unsplash.com/photos/a-womans-hand-with-a-manicured-nail-polish-YmQszA5_GkE' },
+  'flowers-hold': { author: 'Arina Krasnikova', source: 'Pexels', url: 'https://www.pexels.com/photo/close-up-shot-of-person-holding-flowers-7752610/' },
   'hands-rings': { author: 'Elijah Pilchard', source: 'Unsplash', url: 'https://unsplash.com/photos/close-up-of-elegant-manicured-hands-with-rings-vFpYTyGxXNE' },
 }
 
