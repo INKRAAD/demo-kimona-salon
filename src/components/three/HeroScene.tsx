@@ -13,9 +13,10 @@ type SceneProps = { reduced: boolean; mobile: boolean }
 
 /* ───────────── Frasco de esmalte con el monograma K ───────────── */
 function PolishBottle({ mobile }: { mobile: boolean }) {
-  const label = useTexture('/brand/mark-512.png')
-  label.colorSpace = THREE.SRGBColorSpace
-  label.anisotropy = 4
+  const label = useTexture('/brand/mark-512.png', (t) => {
+    t.colorSpace = THREE.SRGBColorSpace
+    t.anisotropy = 4
+  })
 
   const glass = useMemo(
     () =>

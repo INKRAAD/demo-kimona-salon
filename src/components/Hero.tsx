@@ -38,13 +38,11 @@ function StaticFallback() {
 export function Hero({ ready, reduced, mobile }: { ready: boolean; reduced: boolean; mobile: boolean }) {
   const root = useRef<HTMLElement>(null)
   const [inView, setInView] = useState(true)
-  const [webgl, setWebgl] = useState(true)
+  const [webgl] = useState(hasWebGL)
 
   useEffect(() => {
-    const ok = hasWebGL()
-    setWebgl(ok)
-    if (ok) import('./three/HeroScene') // precarga mientras corre el loader
-  }, [])
+    if (webgl) import('./three/HeroScene') // precarga mientras corre el loader
+  }, [webgl])
 
   // Pausa el render 3D cuando el hero sale de pantalla
   useEffect(() => {

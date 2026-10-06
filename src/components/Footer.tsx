@@ -1,6 +1,8 @@
 import { CREDITS, FRESHA_URL, SITE, WHATSAPP_URL } from '../data/site'
 import { KMonogram } from './KMonogram'
 
+const YEAR = new Date().getFullYear()
+
 export function Footer() {
   return (
     <footer className="relative bg-ink text-sand">
@@ -60,7 +62,7 @@ export function Footer() {
         </details>
 
         <div className="mt-8 flex flex-col gap-3 border-t border-sand/10 pt-6 text-xs text-sand/75 md:flex-row md:justify-between">
-          <p>© {new Date().getFullYear()} Kimona Salon · Miraflores, Lima</p>
+          <p>© {YEAR} Kimona Salon · Miraflores, Lima</p>
           <p>Demo conceptual no oficial de rediseño web · Propuesta de INKRAAD. Imágenes referenciales de Pexels y Unsplash.</p>
         </div>
       </div>
