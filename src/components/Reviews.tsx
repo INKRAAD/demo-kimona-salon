@@ -65,7 +65,8 @@ export function Reviews() {
         <div className="rv-grid mt-20 grid gap-6 md:grid-cols-3">
           {REVIEWS.map((r, i) => (
             <figure key={i} className="rv-card sheen relative flex flex-col justify-between rounded-[28px] border border-teal/10 bg-white/60 p-8 shadow-[0_30px_60px_-30px_rgba(15,46,51,0.25)] backdrop-blur md:p-10">
-              <span className="font-display -mb-6 block h-12 text-7xl leading-none text-copper/40" aria-hidden>
+              <div>
+              <span className="font-display -mb-3 block h-12 text-7xl leading-none text-copper/40" aria-hidden>
                 “
               </span>
               <blockquote>
@@ -74,6 +75,7 @@ export function Reviews() {
                   Original: “{r.original}”
                 </p>
               </blockquote>
+              </div>
               <figcaption className="mt-8 flex items-center justify-between border-t border-teal/10 pt-5 text-sm text-teal-soft">
                 <span>Reseña de Google · {r.date}</span>
                 <span className="flex text-copper" aria-label="5 estrellas">

@@ -29,6 +29,25 @@ export default function App() {
     if (ready) requestAnimationFrame(() => ScrollTrigger.refresh())
   }, [ready])
 
+  // Recalcula los triggers cuando cambia la altura del contenido (tabs, imágenes, fuentes)
+  useEffect(() => {
+    let t = 0
+    let last = 0
+    const ro = new ResizeObserver(([e]) => {
+      const h = Math.round(e.contentRect.height)
+      if (Math.abs(h - last) < 2) return
+      last = h
+      clearTimeout(t)
+      t = window.setTimeout(() => ScrollTrigger.refresh(), 250)
+    })
+    const main = document.getElementById('contenido')
+    if (main) ro.observe(main)
+    return () => {
+      ro.disconnect()
+      clearTimeout(t)
+    }
+  }, [])
+
   useEffect(() => {
     const onLoad = () => ScrollTrigger.refresh()
     window.addEventListener('load', onLoad)

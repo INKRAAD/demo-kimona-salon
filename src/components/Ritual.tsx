@@ -72,9 +72,9 @@ export function Ritual() {
   return (
     <section ref={root} id="experiencia" className="grain relative overflow-hidden bg-sand text-teal" aria-labelledby="rt-title">
       <div className={horizontal ? 'flex h-[100svh] items-center' : 'py-24'}>
-        <div ref={track} className={horizontal ? 'flex h-full items-center gap-10 pr-[10vw] pl-10' : 'flex flex-col gap-16 px-6'}>
+        <div ref={track} className={horizontal ? 'flex h-full items-center gap-10 pr-[10vw] pl-10' : 'mx-auto grid max-w-7xl gap-16 px-6 md:grid-cols-2 md:gap-x-12 md:px-10'}>
           {/* Intro */}
-          <div className={horizontal ? 'w-[38vw] shrink-0' : ''}>
+          <div className={horizontal ? 'w-[38vw] shrink-0' : 'md:col-span-2'}>
             <p className="eyebrow mb-6 flex items-center gap-3 text-copper-deep">
               <Sparkle className="h-3 w-3" /> La experiencia Kimona
             </p>

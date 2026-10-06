@@ -95,9 +95,11 @@ export function Nav() {
             animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
             exit={{ clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)' }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="seigaiha fixed inset-0 -z-10 flex flex-col justify-end bg-teal px-8 pb-12 pt-28 text-sand lg:hidden"
+            className="fixed inset-0 -z-10 flex flex-col justify-end bg-teal px-8 pb-12 pt-28 text-sand lg:hidden"
           >
-            <ul className="space-y-2">
+            <div className="seigaiha pointer-events-none absolute inset-0 opacity-[0.07]" aria-hidden />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" aria-hidden />
+            <ul className="relative space-y-2">
               {LINKS.map((l, i) => (
                 <motion.li key={l.id} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.15 + i * 0.06, duration: 0.6 }}>
                   <a href={`#${l.id}`} onClick={go(l.id)} className="display block py-1 text-5xl">
@@ -106,7 +108,7 @@ export function Nav() {
                 </motion.li>
               ))}
             </ul>
-            <div className="mt-10 flex flex-col gap-1 text-sm text-sand/75">
+            <div className="relative mt-10 flex flex-col gap-1 text-sm text-sand/80">
               <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="py-1">WhatsApp · {SITE.phoneDisplay}</a>
               <a href={SITE.instagram.url} target="_blank" rel="noopener noreferrer" className="py-1">Instagram · {SITE.instagram.handle}</a>
             </div>
