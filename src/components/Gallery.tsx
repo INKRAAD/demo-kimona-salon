@@ -103,7 +103,7 @@ export function Gallery() {
             </div>
           ))}
         </div>
-        <p className="mt-10 text-xs text-sand/60">
+        <p className="mt-10 text-xs text-sand/75">
           Imágenes referenciales de bancos libres (Pexels / Unsplash) para esta demo. En la versión final se reemplazan por fotos reales de los trabajos de Kimona.
         </p>
       </div>

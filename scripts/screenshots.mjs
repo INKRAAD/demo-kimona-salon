@@ -47,9 +47,33 @@ for (const cfg of configs) {
     await page.screenshot({ path: `${OUT}${cfg.name}${suffix}-${id}.png` })
   }
   if (!process.env.SKIP_FULL) {
-    await page.evaluate(() => window.scrollTo(0, 0))
-    await page.waitForTimeout(800)
-    await page.screenshot({ path: `${OUT}${cfg.name}${suffix}-full.png`, fullPage: true })
+    // Página completa «cosida» a partir de capturas de viewport (fullPage nativo rompe los pins de ScrollTrigger y las unidades svh)
+    const vh = cfg.viewport.height
+    const frames = []
+    const h = await page.evaluate(() => document.documentElement.scrollHeight)
+    for (let y = 0, i = 0; y < h; y += vh, i++) {
+      const yy = Math.min(y, h - vh)
+      if (i === 1) await page.addStyleTag({ content: 'header{visibility:hidden!important}' })
+      await page.evaluate((v) => window.scrollTo(0, v), yy)
+      await page.waitForTimeout(900)
+      const f = `/tmp/kimona-frame-${cfg.name}-${i}.png`
+      await page.screenshot({ path: f })
+      frames.push([f, yy])
+    }
+    const { execFileSync } = await import('node:child_process')
+    const py = `
+import sys, json
+from PIL import Image
+frames=json.loads(sys.argv[1]); out=sys.argv[2]; total=int(sys.argv[3]); scale=float(sys.argv[4])
+first=Image.open(frames[0][0]); W=first.width
+canvas=Image.new('RGB',(W,int(total*scale)),'white')
+for f,y in frames:
+    canvas.paste(Image.open(f).convert('RGB'),(0,int(y*scale)))
+if W>900: pass
+else: canvas=canvas.resize((W//2,canvas.height//2))
+canvas.save(out,quality=80,optimize=True,progressive=True)
+`
+    execFileSync('python3', ['-c', py, JSON.stringify(frames), `${OUT}${cfg.name}${suffix}-full.jpg`, String(h), String(cfg.deviceScaleFactor || 1)])
   }
   await ctx.close()
 }

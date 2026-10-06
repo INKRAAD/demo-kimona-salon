@@ -155,11 +155,11 @@ export function Hero({ ready, reduced, mobile }: { ready: boolean; reduced: bool
             ))}
           </span>
           <strong className="font-medium text-sand">{SITE.rating.toFixed(1)}</strong>
-          <span className="text-sand/70">· {SITE.reviewsCount} reseñas en Google</span>
+          <span className="text-sand/75">· {SITE.reviewsCount} reseñas en Google</span>
         </a>
       </div>
 
-      <div aria-hidden className="hero-fade absolute bottom-8 right-8 hidden items-center gap-3 text-xs tracking-[0.3em] text-sand/60 uppercase md:flex">
+      <div aria-hidden className="hero-fade absolute bottom-8 right-8 hidden items-center gap-3 text-xs tracking-[0.3em] text-sand/75 uppercase md:flex">
         <span className="h-px w-12 bg-sand/40" /> Desliza
       </div>
     </section>

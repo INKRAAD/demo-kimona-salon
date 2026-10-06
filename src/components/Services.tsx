@@ -77,7 +77,7 @@ export function Services() {
                   key={cat.image}
                   src={img(cat.image, 800)}
                   srcSet={srcSet(cat.image)}
-                  sizes="(min-width: 768px) 40vw, 100vw"
+                  sizes="(min-width: 768px) 60vw, 160vw"
                   alt={cat.imageAlt}
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover"
@@ -151,7 +151,7 @@ export function Services() {
                     {COMBO.badge}
                   </span>
                   <p className="display mt-4 text-3xl md:text-4xl">{COMBO.name}</p>
-                  <p className="mt-1 text-sand/70">{COMBO.detail}</p>
+                  <p className="mt-1 text-sand/75">{COMBO.detail}</p>
                 </div>
                 <div className="flex items-center gap-6">
                   <p className="display text-5xl text-sand">{price(COMBO.price)}</p>
@@ -161,7 +161,7 @@ export function Services() {
                 </div>
               </div>
             </FadeIn>
-            <p className="mt-6 text-xs leading-relaxed text-sand/60">
+            <p className="mt-6 text-xs leading-relaxed text-sand/75">
               Precios en soles publicados en Fresha (consultados el 06/10/2026). Pueden variar; confirma el precio final al reservar.
             </p>
           </div>

@@ -12,7 +12,7 @@
   --color-washi: #f4eee5;
   --color-copper-light: #d2b4a0; /* texto sobre teal: 5.5:1 */
   --color-copper-deep: #6b4e3d; /* texto sobre sand/washi: ≥5.2:1 */
-  --color-teal-soft: #4a6b70; /* texto secundario sobre washi: 5:1 */
+  --color-teal-soft: #3a585d; /* texto secundario sobre sand (5.3:1) y washi (6.7:1) */
 
   --font-display: "Playfair Display Variable", "Playfair Display", Georgia, serif;
   --font-sans: "Jost Variable", "Jost", system-ui, sans-serif;

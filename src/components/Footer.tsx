@@ -14,7 +14,7 @@ export function Footer() {
                 <p className="text-xs tracking-[0.4em] text-copper-light uppercase">Salon · {SITE.tagline}</p>
               </div>
             </div>
-            <p className="mt-6 max-w-sm text-sand/70">Uñas, pestañas, cejas y maquillaje en Miraflores, Lima.</p>
+            <p className="mt-6 max-w-sm text-sand/75">Uñas, pestañas, cejas y maquillaje en Miraflores, Lima.</p>
           </div>
           <nav className="md:col-span-3" aria-label="Contacto">
             <h2 className="eyebrow text-copper-light">Contacto</h2>
@@ -46,8 +46,8 @@ export function Footer() {
           </nav>
         </div>
 
-        <details className="mt-16 border-t border-sand/10 pt-6 text-xs text-sand/60">
-          <summary className="cursor-pointer select-none text-sand/70 hover:text-sand">Créditos de imágenes</summary>
+        <details className="mt-16 border-t border-sand/10 pt-6 text-xs text-sand/75">
+          <summary className="cursor-pointer select-none text-sand/75 hover:text-sand">Créditos de imágenes</summary>
           <ul className="mt-4 grid gap-1 sm:grid-cols-2">
             {Object.entries(CREDITS).map(([k, c]) => (
               <li key={k}>
@@ -59,7 +59,7 @@ export function Footer() {
           </ul>
         </details>
 
-        <div className="mt-8 flex flex-col gap-3 border-t border-sand/10 pt-6 text-xs text-sand/60 md:flex-row md:justify-between">
+        <div className="mt-8 flex flex-col gap-3 border-t border-sand/10 pt-6 text-xs text-sand/75 md:flex-row md:justify-between">
           <p>© {new Date().getFullYear()} Kimona Salon · Miraflores, Lima</p>
           <p>Demo conceptual no oficial de rediseño web · Propuesta de INKRAAD. Imágenes referenciales de Pexels y Unsplash.</p>
         </div>

@@ -37,7 +37,7 @@ export function Location() {
                   </div>
                 ))}
               </dl>
-              <p className="mt-3 text-xs text-sand/60">Horario publicado en Fresha. Para domingos, te recomendamos confirmar por WhatsApp.</p>
+              <p className="mt-3 text-xs text-sand/75">Horario publicado en Fresha. Para domingos, te recomendamos confirmar por WhatsApp.</p>
             </div>
             <div>
               <h3 className="eyebrow text-copper-light">Contacto</h3>
@@ -82,7 +82,7 @@ export function Location() {
                 <span className="relative z-10 mt-6 rounded-full bg-sand px-6 py-3 text-sm font-medium text-teal transition-transform duration-500 group-hover:scale-105">
                   Ver mapa interactivo
                 </span>
-                <span className="relative z-10 mt-3 text-xs text-sand/60">Mapa ilustrativo · Google Maps se carga al pulsar</span>
+                <span className="relative z-10 mt-3 text-xs text-sand/75">Mapa ilustrativo · Google Maps se carga al pulsar</span>
               </button>
             )}
           </div>

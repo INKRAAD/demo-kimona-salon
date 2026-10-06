@@ -92,7 +92,7 @@ export function Ritual() {
                   className="rt-img absolute inset-0 h-full w-[120%] max-w-none -translate-x-[8%] object-cover transition-transform duration-[1.4s] ease-[var(--ease-silk)] group-hover:scale-[1.04]"
                   src={img(s.image, 800)}
                   srcSet={srcSet(s.image)}
-                  sizes="(min-width: 768px) 40vw, 100vw"
+                  sizes="(min-width: 768px) 60vw, 160vw"
                   alt={s.alt}
                   loading="lazy"
                 />
